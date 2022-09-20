@@ -4,6 +4,8 @@ import Controller.Controller;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class dbGUI extends JFrame{
     private JTabbedPane tabPane;
@@ -19,12 +21,20 @@ public class dbGUI extends JFrame{
     private JTable table1;
 
     private  Controller controller = new Controller();
+    EmployeeView employeeView = new EmployeeView();
+
 
     public dbGUI(){
         setContentPane(this.main);
         setSize(600, 300);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        addEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                employeeView.setVisible(true);
+            }
+        });
     }
 
 
